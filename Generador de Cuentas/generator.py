@@ -14,6 +14,8 @@ USER_NAME = "root"
 DB_NAME = "memoria"
 USER_PASSWORD = "admin"
 
+MAIL = "mail-bot@mail.com"
+PASS = "password"
 
 # Receptores
 """
@@ -37,8 +39,6 @@ SEND_MAILS_TO = [
     "mmejiasvaras@gmail.com", "maria.canoles.r@usach.cl"
 ]
 
-"""
-
 SEND_MAILS_TO = [
     "danielsilva@ug.uchile.cl",
     "sixto.morales@ug.uchile.cl",
@@ -46,6 +46,9 @@ SEND_MAILS_TO = [
     "natalia.arancibia.pizarro@gmail.com",
     "magdalena.vasquez@mail.udp.cl"
 ]
+"""
+
+
 
 def generatePassword(passwordLength):
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -121,10 +124,8 @@ smtp_server = "smtp.gmail.com"
 port = 465  # For starttls
 
 # Login to mail
-sender_email = "mail-bot@sebastian-rg.com"
-password = "wooyvqkdmrrejyoj" #app password
-password = ".Ww5M5gaW)D5"
-# receiver_email = "elpadrinosrg@gmail.com"
+sender_email = MAIL
+password = PASS
 
 def SendMail(mail, username, password, name):
     msg = EmailMessage()
@@ -156,7 +157,6 @@ def SendMail(mail, username, password, name):
     server.send_message(msg)
 
 
-# server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
 server = smtplib.SMTP_SSL("mail.sebastian-rg.com", 465)
 server.ehlo()
 server.starttls
